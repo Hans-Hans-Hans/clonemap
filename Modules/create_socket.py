@@ -1,4 +1,6 @@
 import socket
+import re
+import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from Modules.print_lock import print_lock  # Used to ensure thread-safe printing
 from colorama import init, Fore, Style
@@ -32,24 +34,15 @@ def log_success(message: str, debug: bool):
             print(Fore.GREEN + message + Style.RESET_ALL)
 
 def print_host_report(ip: str, ip_address: str, results: list[tuple[int, str, str, str]], banner_enabled: bool):
-    """
-    Prints a formatted scan report for a single host.
-    Includes port, state, service, and optionally banner.
-    """
-    print(f"\nScan report for {ip} ({ip_address})")
-    print(f"Host is up.\n")
-    
-    # Print header
-    if banner_enabled:
-        print(Fore.CYAN + f"{'PORT':<9} {'STATE':<8} {'SERVICE':<15} BANNER" + Style.RESET_ALL)
-    else:
-        print(Fore.CYAN + f"{'PORT':<9} {'STATE':<8} {'SERVICE':<15}" + Style.RESET_ALL)
-    
-    # Print each result
-    for port, state, service, banner in results:
-        # Color the state
-        state_padded = f"{state:<8}"  # pad before coloring
+    lines = []
+    lines.append(f"\nScan report for {ip} ({ip_address})")
+    lines.append("Host is up.\n")
+    header = f"{'PORT':<9} {'STATE':<8} {'SERVICE':<15} BANNER"
+    print(Fore.CYAN + header + Style.RESET_ALL)
+    lines.append(header)
 
+    for port, state, service, banner in results:
+        state_padded = f"{state:<8}"
         if state == "open":
             state_colored = Fore.GREEN + state_padded + Style.RESET_ALL
         elif state == "closed":
@@ -57,11 +50,35 @@ def print_host_report(ip: str, ip_address: str, results: list[tuple[int, str, st
         else:
             state_colored = state_padded
 
-        # Add padding to each column; add a space before banner if banner exists
-        line = f"{str(port) + '/tcp':<9} {state_colored:<8} {service:<15}"
+        line = f"{str(port) + '/tcp':<9} {state_colored} {service:<15}"
         if banner_enabled and banner:
             line += f" {banner}"
         print(line)
+        lines.append(line)
+
+    # Write to text file without ANSI colors
+    with open("output.txt", "a", encoding="utf-8") as f:
+        for line in lines:
+            clean_line = re.sub(r'\x1b\[[0-9;]*m', '', line)
+            f.write(clean_line + "\n")
+
+    # Prepare JSON data
+    json_results = []
+    for port, state, service, banner in results:
+        json_results.append({
+            "port": port,
+            "state": state,
+            "service": service,
+            "banner": banner if banner else ""
+        })
+
+    # Write JSON file (overwrite each run)
+    with open("output.json", "w", encoding="utf-8") as jf:
+        json.dump({
+            "host": ip,
+            "ip_address": ip_address,
+            "results": json_results
+        }, jf, indent=4)
 
 def resolve_hostname(ip: str, debug: bool) -> str:
     """
