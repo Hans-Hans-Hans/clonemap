@@ -1,5 +1,4 @@
 # CloneMap
-# WIP(Features below may not be integrated yet but are planned)
 
 A fast, lightweight Nmap-inspired network scanner written in Python. CloneMap allows users to perform quick reconnaissance on hosts and subnets, identify open ports, and detect running services with a familiar CLI-driven experience.
 
