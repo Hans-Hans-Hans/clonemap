@@ -1,0 +1,8 @@
+import ipaddress
+
+def get_hosts_from_cidr(cidr: str) -> list[str]:
+    try:
+        network = ipaddress.ip_network(cidr, strict=False)
+        return [str(ip) for ip in network.hosts()]
+    except ValueError as e:
+        print(f"\033[91m [!] Invalid CIDR block: {e}\033[0m")

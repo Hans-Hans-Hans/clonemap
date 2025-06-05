@@ -1,0 +1,33 @@
+import argparse
+from datetime import datetime
+from parse_ports import parse_ports as parse_ports
+from get_hosts_from_cidr import get_hosts_from_cidr
+from create_socket import threaded_scan
+
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Nmap Clone")
+    
+    parser.add_argument("--hostname", "-hn", type=str, help="Hostname", required=False)
+    parser.add_argument("--cidr", "-c", type=str, help="CIDR", required=False)
+    parser.add_argument("--ports", "-p", type=str, help="Comma-serparated list of ports", required=True)
+    parser.add_argument("--protocol", "-t", type=str, choices=["tcp", "udp"], default="tcp", help="TCP or UDP", required=False)
+    parser.add_argument("--debug", "-d", action="store_true", help="Debug enable/disable", required=False)
+    parser.add_argument("--banner", "-b", action="store_true", help="Banner retrieve enable/disable", required=False)
+    args = parser.parse_args()
+    
+    # Checks for the presence of a CIDR code. If one is detected get_hosts_from_cidr parses it and returns a list using ipaddress of all the hosts in the network
+    host_ips = []
+    if args.cidr:
+        host_ips = get_hosts_from_cidr(args.cidr)
+    else:
+        host_ips = args.hostname.split(",")
+        
+    port_range = parse_ports(args.ports)
+    
+    print(f'Starting CloneMap 1.0 (https://gitbub.com/Hans-Hans-Hans/clonemap) at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n') 
+    threaded_scan(host_ips, args.debug, port_range, args.protocol, args.banner)
+        
+    # for ip in host_ips:
+    #    try_connection(ip, args.debug, port_range, args.protocol)

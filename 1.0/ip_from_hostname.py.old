@@ -1,0 +1,19 @@
+import socket
+import sys
+from print_lock import print_lock
+
+
+def ip_from_hostname(hostname: str) -> str:
+    """
+    Input: hostname such as www.google.com
+    Return: The IP that is matched via DNS
+    """
+    try:
+        host_ip: str = socket.gethostbyname(hostname)
+        with print_lock:
+            print(f"Hostname: {hostname}\nHost IP: {host_ip}\nNow testing connections on specified port(s)")
+        return host_ip
+    except socket.gaierror:
+        with print_lock:
+            print("There was an error resolving the host")
+        sys.exit()
