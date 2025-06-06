@@ -7,3 +7,158 @@ PORT      STATE    SERVICE         BANNER
 53/tcp    closed   DNS            
 80/tcp    open     HTTP           
 443/tcp   open     HTTPS          
+
+Scan report for 10.0.0.5 (10.0.0.5)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+53/tcp    open     DNS            
+123/tcp   open     NTP            
+
+Scan report for 8.8.8.8 (8.8.8.8)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+53/tcp    open     DNS            
+123/tcp   open     NTP            
+
+Scan report for scanme.nmap.org (45.33.32.156)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+22/tcp    open     SSH            
+53/tcp    open     DNS            
+123/tcp   open     NTP            
+
+Scan report for scanme.nmap.org (45.33.32.156)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+22/tcp    open     SSH             SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+53/tcp    closed   DNS            
+123/tcp   closed   NTP            
+
+Scan report for scanme.nmap.org (45.33.32.156)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+22/tcp    open     SSH             SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+
+Scan report for scanme.nmap.org (45.33.32.156)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+7/tcp     closed   Echo           
+20/tcp    closed   FTP Data       
+21/tcp    closed   FTP Control    
+22/tcp    open     SSH             SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+23/tcp    closed   Telnet         
+25/tcp    closed   SMTP           
+26/tcp    closed   SMTP (Alternate)
+37/tcp    closed   Time           
+53/tcp    closed   DNS            
+67/tcp    closed   DHCP Server    
+68/tcp    closed   DHCP Client    
+69/tcp    closed   TFTP           
+70/tcp    closed   Gopher         
+79/tcp    closed   Finger         
+80/tcp    open     HTTP           
+81/tcp    closed   Torpark        
+88/tcp    closed   Kerberos       
+110/tcp   closed   POP3           
+111/tcp   closed   RPCbind        
+113/tcp   closed   Ident          
+119/tcp   closed   NNTP           
+123/tcp   closed   NTP            
+135/tcp   closed   MS RPC         
+137/tcp   closed   NetBIOS Name   
+138/tcp   closed   NetBIOS Datagram
+139/tcp   closed   NetBIOS Session
+143/tcp   closed   IMAP           
+161/tcp   closed   SNMP           
+162/tcp   closed   SNMP Trap      
+179/tcp   closed   BGP            
+194/tcp   closed   IRC            
+389/tcp   closed   LDAP           
+427/tcp   closed   SLP            
+443/tcp   open     HTTPS          
+445/tcp   closed   Microsoft-DS   
+465/tcp   closed   SMTPS          
+500/tcp   closed   ISAKMP         
+512/tcp   closed   exec           
+513/tcp   closed   login          
+514/tcp   closed   shell          
+515/tcp   closed   LPD            
+520/tcp   closed   RIP            
+524/tcp   closed   NetWare Core Protocol
+540/tcp   closed   UUCP           
+554/tcp   closed   RTSP           
+587/tcp   closed   SMTP (Submission)
+593/tcp   closed   RPC over HTTP  
+631/tcp   closed   IPP            
+636/tcp   closed   LDAPS          
+873/tcp   closed   rsync          
+902/tcp   closed   VMware Server  
+989/tcp   closed   FTPS Data      
+990/tcp   closed   FTPS Control   
+993/tcp   closed   IMAPS          
+995/tcp   closed   POP3S          
+1025/tcp  closed   NFS or IIS     
+1080/tcp  closed   SOCKS Proxy    
+1194/tcp  closed   OpenVPN        
+1214/tcp  closed   Kazaa          
+1433/tcp  closed   MSSQL          
+1434/tcp  closed   MSSQL Monitor  
+1512/tcp  closed   WINS           
+1521/tcp  closed   Oracle DB      
+1720/tcp  closed   H.323          
+1723/tcp  closed   PPTP           
+1755/tcp  closed   Microsoft Media Server
+1812/tcp  closed   RADIUS (Auth)  
+1813/tcp  closed   RADIUS (Acct)  
+1900/tcp  closed   SSDP           
+2049/tcp  closed   NFS            
+2082/tcp  closed   cPanel         
+2083/tcp  closed   cPanel (SSL)   
+2100/tcp  closed   Oracle XDB     
+2222/tcp  closed   DirectAdmin    
+2302/tcp  closed   Games: ArmA    
+2483/tcp  closed   Oracle DB Listener
+2484/tcp  closed   Oracle DB Listener (SSL)
+3306/tcp  closed   MySQL          
+3389/tcp  closed   RDP            
+3690/tcp  closed   Subversion     
+4000/tcp  closed   ICQ            
+4444/tcp  closed   Metasploit     
+4664/tcp  closed   Google Desktop 
+4899/tcp  closed   Radmin         
+5000/tcp  closed   UPnP           
+5060/tcp  closed   SIP            
+5061/tcp  closed   SIPS           
+5432/tcp  closed   PostgreSQL     
+5800/tcp  closed   VNC Web        
+5900/tcp  closed   VNC            
+6000/tcp  closed   X11            
+6667/tcp  closed   IRC            
+7000/tcp  closed   AFS            
+8000/tcp  closed   HTTP Alt       
+8008/tcp  closed   HTTP Proxy     
+8080/tcp  closed   HTTP Proxy     
+8443/tcp  closed   HTTPS Alt      
+8888/tcp  closed   HTTP Alt       
+9000/tcp  closed   DBGp           
+9090/tcp  closed   Web Console    
+9100/tcp  closed   JetDirect      
+9999/tcp  closed   Urchin         
+10000/tcp closed   Webmin         
+32768/tcp closed   RPC High Port  
+49152/tcp closed   MS RPC Ephemeral
+49153
+/tcp closed   unknown        
+
+Scan report for scanme.nmap.org (45.33.32.156)
+Host is up.
+
+PORT      STATE    SERVICE         BANNER
+22/tcp    open     SSH             SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+80/tcp    open     HTTP           
